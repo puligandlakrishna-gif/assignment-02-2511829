@@ -1,0 +1,19 @@
+Electronics (3 docs)
+| Document | Key Design Decisions |
+|---|---|
+| Sony Headphones | Nested specifications.microphone, variants[] array with per-colour stock, ratings.breakdown object |
+| Samsung TV | Nested dimensions_cm + weight_kg objects, hdr_support[] array, installation sub-object |
+| Apple MacBook Air | Nested processor + display objects, emi_options[] array with month/rate details, ports[] array |
+Clothing (3 docs)
+| Document | Key Design Decisions |
+|---|---|
+| Men's Shirt | variants[] with per-colour sizes[] arrays each holding chest measurement + stock |
+| Women's Kurta | set_includes[], dual fabric fields (kurta vs dupatta), per-variant bust/waist measurements |
+| Running Shoes | Both UK and EU sizing inside each sizes[] entry, activity[] array, biomechanical drop_mm field |
+Groceries (3 docs)
+| Document | Key Design Decisions |
+|---|---|
+| Tata Tea | nutritional_info_per_100g, certifications[], shelf_life with opened/unopened distinction |
+| Amul Milk | subscription_options[] array with frequency + discount, refrigerated shelf life tracking |
+| Fortune Oil | Full fat breakdown in nutrition (saturated/poly/mono/trans), suitable_for[] array, fortified_with[] |
+The document model deliberately avoids the joins that would be required in a relational schema — all attributes relevant to a product live in one document, which is the core strength of MongoDB for product catalogues.
